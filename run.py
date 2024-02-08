@@ -7,7 +7,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.from_service_account_file('credentials.json')
+CREDS = Credentials.from_service_account_file('creds.json')
 
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 
@@ -69,10 +69,8 @@ def calculate_surplus_data(sales_row):
  
 def get_last_five_entries_sale():   
     """collect last five entries from sandwich column for each sandwich""" 
-    
+
     sales = SHEET.worksheet("sales")
-    
-    
     columns=[]
     for ind in range(1,7):
         column = sales.col_values(ind)
